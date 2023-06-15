@@ -4,14 +4,28 @@ namespace MyApp
 {
     class MainClass
     {
+        public static string answer1;
+        public static string answer2;
+        public static string answer3;
+        public static string answer4;
+
         public static string userName;
         public static string firstInput;
-
-
         public static void Main(string[] args)
         {
-            UserIntroduceYourSelf();
-            DoesUserWantToStartQuiz();
+            string restartConsole;
+            do
+            {
+                UserIntroduceYourSelf();
+                DoesUserWantToStartQuiz();
+                Console.WriteLine("Enter \"yes\" to restart or \"q\" to quit");
+                restartConsole = Console.ReadLine();
+                if (restartConsole == "q")
+                {
+                    break;
+                }
+
+            } while (restartConsole == "yes");
         }
 
         public static void UserIntroduceYourSelf()
@@ -55,8 +69,28 @@ namespace MyApp
 
         public static void BeginQuiz()
         {
-            Console.WriteLine("Question one...");
+            Question1();
+            Question2();
+        }
+
+        public static void Question1()
+        {
+
+            Console.Clear();
+            Console.WriteLine("Answer the first five questions then i will show you the results after.\n");
+            Console.WriteLine("First question: \n");
+            Console.WriteLine("Mary's father has five daughters: \n Nana, Nene, Nini, Nono, " +
+                "and......?\n What is the name of the fifth daughter?\n");
+            answer1 = Console.ReadLine();
+        }
+
+        public static void Question2()
+        {
+            Console.Clear();
+            Console.WriteLine("If you had only one match and entered a dark room containing an oil lamp,\n" +
+            	"some newspaper, and some kindling wood,\n" +
+            	"which would you light first?");
+            answer2 = Console.ReadLine();     
         }
     }
 }
-
