@@ -7,10 +7,10 @@ namespace MyApp
         public static string answer1;
         public static string answer2;
         public static string answer3;
-        public static string answer4;
-
         public static string userName;
         public static string firstInput;
+
+
         public static void Main(string[] args)
         {
             string restartConsole;
@@ -18,6 +18,10 @@ namespace MyApp
             {
                 UserIntroduceYourSelf();
                 DoesUserWantToStartQuiz();
+                DisplayResults();
+
+
+                Console.WriteLine("\n\n\n");
                 Console.WriteLine("Enter \"yes\" to restart or \"q\" to quit");
                 restartConsole = Console.ReadLine();
                 if (restartConsole == "q")
@@ -28,6 +32,11 @@ namespace MyApp
             } while (restartConsole == "yes");
         }
 
+    
+
+            
+                
+                    
         public static void UserIntroduceYourSelf()
         {
             Console.WriteLine("It is good to first tell me your name");
@@ -39,6 +48,10 @@ namespace MyApp
             Console.WriteLine("Nice to meet you");
             Console.WriteLine();
         }
+
+       
+
+
 
         public static void DoesUserWantToStartQuiz()
         {
@@ -67,11 +80,32 @@ namespace MyApp
             }
         }
 
+       
+
+         
+          
+           
+             public static void DisplayResults()
+        {
+            Console.Clear();
+            Console.WriteLine("Here are the results");
+            Console.Write("First question:\n");
+            TestQuestion1();
+        }
+
+       
+
+
         public static void BeginQuiz()
         {
+            Console.WriteLine("Answer the first three questions then i will show you the results after.\n");
             Question1();
             Question2();
+            Question3();
         }
+
+
+
 
         public static void Question1()
         {
@@ -84,13 +118,56 @@ namespace MyApp
             answer1 = Console.ReadLine();
         }
 
+
+
+
         public static void Question2()
         {
             Console.Clear();
+            Console.WriteLine("Second question:\n");
             Console.WriteLine("If you had only one match and entered a dark room containing an oil lamp,\n" +
             	"some newspaper, and some kindling wood,\n" +
             	"which would you light first?");
             answer2 = Console.ReadLine();     
+        }
+
+
+
+
+
+        public static void Question3()
+        {
+            Console.Clear();
+            Console.WriteLine("Third question:\n");
+            Console.WriteLine("You are participating in a race and overtake the person in the second place.\n" +
+            	"What position are will you be in?");
+            answer3 = Console.ReadLine();
+        }
+
+
+
+
+        public static void TestQuestion1()
+        {
+            if (answer1 == "Mary" || answer1 == "mary")
+            {
+                Console.WriteLine("\t\tYour answer was correct \n\t\t Welldone");
+            }
+            else
+            {
+                Console.WriteLine("\t\tYour answer was incorect\n");
+                TeachUserAboutQuestion1();
+            }
+        }
+
+
+
+        public static void TeachUserAboutQuestion1()
+        {
+            Console.WriteLine("\"Mary's father has five daughters: Nana, Nene, Nini, Nono, and....? " +
+            	" What is the name of the fifth daughter?\n");
+            Console.WriteLine("\"Mary's father\" means that the first daughter is Mary then plus " +
+            	"the other four");
         }
     }
 }
